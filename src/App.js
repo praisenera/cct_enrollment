@@ -1,24 +1,79 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import OffcanvasExample from "./NavComponent";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Footer from "./Components/Footer";
+import Registration from "./Components/Registration";
+import Login from "./Components/Login";
+import AdminDashboard from "./Components/AdminDashboard";
+import EnrollmentForm from "./Components/Enrollment";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "./css/style.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/enrollmentform"
+          element={
+            <>
+              <EnrollmentForm />
+            </>
+          }
+        />
+        <Route
+          path="/admindashboard"
+          element={
+            <>
+              <AdminDashboard />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <OffcanvasExample />
+              <Login />
+            </>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <>
+              <OffcanvasExample />
+              <Registration />
+            </>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <OffcanvasExample />
+              <Home />
+              <Footer />
+            </>
+          }
+        ></Route>
+
+        <Route
+          path="/about"
+          element={
+            <>
+              <OffcanvasExample />
+              <About />
+              <Footer />
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
