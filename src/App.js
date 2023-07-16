@@ -12,6 +12,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./css/style.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Loginx } from "./LoginCompo";
 
 function App() {
   return (
@@ -61,7 +62,16 @@ function App() {
             </>
           }
         ></Route>
-
+        <Route
+          path="/cct_enrollment"
+          element={
+            <>
+              <OffcanvasExample />
+              <Home />
+              <Footer />
+            </>
+          }
+        ></Route>
         <Route
           path="/about"
           element={

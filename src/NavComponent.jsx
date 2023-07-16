@@ -5,8 +5,28 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { auth } from "./config/firebaseconfig";
+import { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
 
 function OffcanvasExample() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+  }, [count]);
+
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      setCount(count + 1);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       {["lg"].map((expand) => (
@@ -53,16 +73,31 @@ function OffcanvasExample() {
                       Courses
                     </Link>
                   </Nav.Link>
-                  <Nav.Link>
-                    <Link className="link" to="/login">
-                      Login
-                    </Link>
-                  </Nav.Link>
-                  <Nav.Link>
-                    <Link className="link" to="/register">
-                      Register
-                    </Link>
-                  </Nav.Link>
+                  {auth.currentUser ? (
+                    <Nav.Link>
+                      <Link
+                        to="/"
+                        className="link"
+                        onClick={logout}
+                        style={{ paddingLeft: "20px" }}
+                      >
+                        Logout
+                      </Link>
+                    </Nav.Link>
+                  ) : (
+                    <>
+                      <Nav.Link>
+                        <Link className="link" to="/login">
+                          Login
+                        </Link>
+                      </Nav.Link>
+                      <Nav.Link>
+                        <Link className="link" to="/register">
+                          Register
+                        </Link>
+                      </Nav.Link>
+                    </>
+                  )}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
