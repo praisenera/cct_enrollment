@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cct_enrollment/static/css/main.06d1ca9f.css",
+    "main.js": "/cct_enrollment/static/js/main.d38d92d1.js",
+    "static/js/787.4a535919.chunk.js": "/cct_enrollment/static/js/787.4a535919.chunk.js",
+    "static/media/hero.jpg": "/cct_enrollment/static/media/hero.0582528b2af1c2a54608.jpg",
+    "index.html": "/cct_enrollment/index.html",
+    "main.06d1ca9f.css.map": "/cct_enrollment/static/css/main.06d1ca9f.css.map",
+    "main.d38d92d1.js.map": "/cct_enrollment/static/js/main.d38d92d1.js.map",
+    "787.4a535919.chunk.js.map": "/cct_enrollment/static/js/787.4a535919.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.06d1ca9f.css",
+    "static/js/main.d38d92d1.js"
+  ]
+}
